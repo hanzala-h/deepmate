@@ -1,0 +1,15 @@
+.idea
+.vscode
+
+__pycache__
+/__pycache__
+/*/__pycache__
+
+
+data
+notebooks
+models
+
+.env
+
+venv
