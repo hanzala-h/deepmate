@@ -1,7 +1,7 @@
 # ♟️ DeepMate – AI-Powered Chess Companion _(In Progress)_
 
 [![ML Service Status](https://github.com/hanzala-h/deepmate/actions/workflows/python-app.yml/badge.svg)](https://github.com/hanzala-h/deepmate/actions/workflows/python-app.yml)
-[![Backend Status](https://github.com/hanzala-h/deepmate/actions/workflows/express-server.yml/badge.svg)](https://github.com/hanzala-h/deepmate/actions/workflows/express-server.yml)
+[![Backend Status](https://github.com/hanzala-h/deepmate/actions/workflows/express-backend.yml/badge.svg)](https://github.com/hanzala-h/deepmate/actions/workflows/express-backend.yml)
 [![Last Commit](https://img.shields.io/github/last-commit/hanzala-h/deepmate?color=blue)](https://github.com/hanzala-h/deepmate/commits/main)
 [![Repo Size](https://img.shields.io/github/repo-size/hanzala-h/deepmate)](https://github.com/hanzala-h/deepmate)
 [![License](https://img.shields.io/github/license/hanzala-h/deepmate)](https://github.com/hanzala-h/deepmate/blob/main/LICENSE)
