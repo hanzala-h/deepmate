@@ -3,5 +3,11 @@
 
 node_modules
 
-.package-lock.json
+package-lock.json
 
+.env
+
+public
+dist
+
+.DS_Store

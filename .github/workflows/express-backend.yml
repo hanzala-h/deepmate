@@ -1,0 +1,31 @@
+name: Express Backend
+
+on:
+  push:
+    paths:
+      - "server/**"
+    branches: [main]
+  pull_request:
+    paths:
+      - "server/**"
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: server
+
+    steps:
+      - name: 🔄 Checkout code
+        uses: actions/checkout@v3
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: 📦 Install dependencies
+        run: npm install

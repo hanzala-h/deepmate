@@ -1,6 +1,7 @@
 # ♟️ DeepMate – AI-Powered Chess Companion _(In Progress)_
 
-[![Build Status](https://github.com/hanzala-h/deepmate/actions/workflows/python-app.yml/badge.svg)](https://github.com/hanzala-h/deepmate/actions)
+[![ML Service Status](https://github.com/hanzala-h/deepmate/actions/workflows/python-app.yml/badge.svg)](https://github.com/hanzala-h/deepmate/actions/workflows/python-app.yml)
+[![Backend Status](https://github.com/hanzala-h/deepmate/actions/workflows/express-server.yml/badge.svg)](https://github.com/hanzala-h/deepmate/actions/workflows/express-server.yml)
 [![Last Commit](https://img.shields.io/github/last-commit/hanzala-h/deepmate?color=blue)](https://github.com/hanzala-h/deepmate/commits/main)
 [![Repo Size](https://img.shields.io/github/repo-size/hanzala-h/deepmate)](https://github.com/hanzala-h/deepmate)
 [![License](https://img.shields.io/github/license/hanzala-h/deepmate)](https://github.com/hanzala-h/deepmate/blob/main/LICENSE)
@@ -10,8 +11,8 @@
 
 **DeepMate** is a full-stack AI-powered chess companion that delivers **real-time win probability predictions** using machine learning. Designed for learners and competitors, it combines chess intelligence with a modern tech stack.
 
-> 🚧 **Project Status:**  
-> ✅ ML Microservice — ⏳ Frontend/Backend in Progress
+> 🚀 **Current Progress**  
+> ✅ ML Microservice – ✅ Backend (Auth, User, Prediction APIs) – ⏳ Frontend in progress
 
 ---
 
@@ -26,10 +27,12 @@
 ## 🧠 Features
 
 - 💡 Real-time **win/draw/loss predictions**
-- 🎮 Interactive PvP chessboard with legal move logic
-- 📂 PGN-based **pre-game prediction**
-- 📈 Post-game summary and analysis _(planned)_
-- ⚡ FastAPI microservice + MERN stack integration
+- 🧠 ML-powered chess insights
+- 🎮 PvP Chessboard with legal move validation (coming soon)
+- 📂 PGN upload-based prediction
+- 📈 Post-game summary & analysis _(planned)_
+- 🔐 User authentication with JWT
+- 🗂️ Modular REST APIs (Users, Auth, Predictions)
 
 ---
 
@@ -46,17 +49,18 @@
 ---
 
 ## 📁 Project Structure
+
 ```
 
 deepmate/
-├── client/ # React frontend
-├── server/ # Express backend
+├── client/ # React frontend (in progress)
+├── server/ # Node.js backend with Auth, Users, Predictions
 ├── ml-service/ # FastAPI ML microservice
 ├── .gitignore
 ├── LICENSE
 └── README.md
 
-````
+```
 
 ---
 
@@ -78,14 +82,14 @@ deepmate/
 ```bash
 git clone https://github.com/hanzala-h/deepmate.git
 cd deepmate
-````
+```
 
 2. **Start ML Microservice**
 
 ```bash
 cd ml-service
 python -m venv venv
-source venv/bin/activate  # For Windows: venv\Scripts\activate
+source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
@@ -106,7 +110,7 @@ npm install
 npm run dev
 ```
 
-Visit: [http://localhost:3000](http://localhost:3000)
+Then open: [http://localhost:3000](http://localhost:3000)
 
 ---
 
@@ -114,38 +118,51 @@ Visit: [http://localhost:3000](http://localhost:3000)
 
 ### 🔹 ML Microservice — `POST /v1/predict`
 
-- Accepts a JSON payload representing a chess game state
-- Returns predicted probabilities for win/draw/loss
+- Accepts chess game input (e.g., FEN, PGN)
+- Returns `win/draw/loss` probabilities
+- See [`ml-service/README.md`](ml-service/README.md)
 
-➡️ See [`ml-service/README.md`](ml-service/README.md) for full documentation.
+---
 
-### 🔹 Backend API — `/api/chess`
+### 🔹 Backend API — `/api`
 
-- In development
+| Route                     | Description             |
+| ------------------------- | ----------------------- |
+| `POST /auth/register`     | Register a new user     |
+| `POST /auth/login`        | User login (JWT)        |
+| `GET /users/`             | Fetch all users         |
+| `PUT /users/:id`          | Update user (auth)      |
+| `DELETE /users/:id`       | Delete user (auth)      |
+| `GET /predictions/`       | List all predictions    |
+| `POST /predictions/`      | Create a new prediction |
+| `PUT /predictions/:id`    | Update prediction       |
+| `DELETE /predictions/:id` | Delete prediction       |
 
 ---
 
 ## 🛣️ Roadmap
 
-| Feature                    | Status         |
-| -------------------------- | -------------- |
-| ML Prediction Microservice | ✅ Done        |
-| PvP Chess UI               | ⏳ In Progress |
-| PGN Upload Prediction      | ⏳ In Progress |
-| Real-time Move Prediction  | ⏳ Planned     |
-| Post-game Review & Graphs  | ❌ Planned     |
-| Auth, Chat, Tournaments    | ❌ Planned     |
+| Feature                       | Status      |
+| ----------------------------- | ----------- |
+| ✅ ML Prediction Microservice | Done        |
+| ✅ Auth Module                | Done        |
+| ✅ User Module                | Done        |
+| ✅ Prediction Module          | Done        |
+| ⏳ PvP Chess UI               | In Progress |
+| ⏳ PGN Upload Prediction      | In Progress |
+| ❌ Real-time Move Prediction  | Planned     |
+| ❌ Post-game Analysis         | Planned     |
+| ❌ Tournaments & Chat         | Planned     |
 
 ---
 
 ## 🤝 Contributing
 
 Pull requests are welcome!
-To contribute:
 
 1. Fork the repo
-2. Create a new branch
-3. Submit a PR 🎉
+2. Create a new feature branch
+3. Submit your PR ✅
 
 ---
 
@@ -182,7 +199,6 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## 📝 Notes
 
-- The ML microservice is production-ready and independently testable.
-- Frontend and backend development are active and evolving.
-- For bugs or feature suggestions, [open an issue](https://github.com/hanzala-h/deepmate/issues).
-
+- Backend now includes **auth**, **user**, and **prediction** modules.
+- Frontend development will begin next using Figma-based designs.
+- Bugs or ideas? [Open an issue](https://github.com/hanzala-h/deepmate/issues).
