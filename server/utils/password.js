@@ -1,7 +1,6 @@
 var bcrypt = require("bcryptjs");
 
 const hashPassword = async (password) => {
-  const bcrypt = require("bcrypt");
   try {
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
@@ -12,7 +11,6 @@ const hashPassword = async (password) => {
 };
 
 const comparePassword = async (password, hash) => {
-  const bcrypt = require("bcrypt");
   try {
     const isMatch = await bcrypt.compare(password, hash);
     return isMatch;

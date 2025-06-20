@@ -10,7 +10,7 @@ const {
   deletePrediction,
 } = require("../controllers/predictions");
 
-router.get("/", getPredictions);
+router.get("/", auth, getPredictions);
 router.post("/", auth, createPrediction);
 router.get("/:id", getPredictionById);
 router.put("/:id", auth, updatePrediction);

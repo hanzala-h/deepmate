@@ -2,6 +2,7 @@ const PredictionModel = require("../models/Prediction");
 const debug = require("debug")("server:predictions");
 const axios = require("axios");
 const { isDeepStrictEqual } = require("node:util");
+const mongoose = require("mongoose");
 
 // ML API call helper
 const getPredictionFromAPI = async (inputData) => {
@@ -30,7 +31,9 @@ const getPredictionFromAPI = async (inputData) => {
 // Get all predictions
 const getPredictions = async (req, res) => {
   try {
-    const predictions = await PredictionModel.find()
+    // const userId = req.user.id; // ✅ This assumes your token contains { id: ... }
+
+    const predictions = await PredictionModel.find({})
       .populate("userId", "-passwordHash")
       .lean();
 
@@ -39,7 +42,6 @@ const getPredictions = async (req, res) => {
       data: predictions,
     });
   } catch (error) {
-    debug("Error fetching predictions:", error.message);
     res.status(500).json({
       message: "Failed to fetch predictions",
       error: error.message,
